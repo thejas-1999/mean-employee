@@ -1,0 +1,64 @@
+<div>
+  <button routerLink="/admin/employee">Employees</button>
+  <button routerLink="/admin/reviews">Reviews</button>
+</div>
+
+<div class="review-container">
+  <h1>Reviews</h1>
+  <div class="review-card" *ngFor="let review of reviews">
+    <h3>Review Details</h3>
+    <p>Reviewee: {{ review.reviewee.name }}</p>
+    <p>
+      Assigned Reviewers:
+      <span *ngFor="let reviewer of review.assignedReviewers; let last = last">
+        {{ reviewer.name }}<span *ngIf="!last">, </span>
+      </span>
+    </p>
+    <p>Status: {{ review.status }}</p>
+    <p>Due Date: {{ review.dueDate | date }}</p>
+    <button (click)="editReview(review)">Edit</button>
+  </div>
+</div>
+
+<h2>{{ editMode ? "Edit Review" : "Add New Review" }}</h2>
+
+<form [formGroup]="reviewForm" (ngSubmit)="formSubmit()">
+  <label>Reviewee:</label>
+  <select formControlName="reviewee">
+    <option value="">Select</option>
+    <option *ngFor="let emp of employees" [value]="emp._id">
+      {{ emp.name }}
+    </option>
+  </select>
+
+  <br /><br />
+
+  <label>Assigned Reviewers:</label>
+  <div *ngFor="let emp of employees">
+    <input
+      type="checkbox"
+      [value]="emp._id"
+      (change)="onReviewerChange($event, emp._id)"
+      [checked]="reviewForm.get('assignedReviewers')?.value?.includes(emp._id)"
+    />
+    <label>{{ emp.name }}</label>
+  </div>
+
+  <br /><br />
+
+  <label>Status:</label>
+  <select formControlName="status">
+    <option value="">Select</option>
+    <option value="pending">Pending</option>
+    <option value="completed">Completed</option>
+  </select>
+
+  <br /><br />
+
+  <label>Due Date:</label>
+  <input type="date" formControlName="dueDate" />
+
+  <br /><br />
+
+  <button type="submit" [disabled]="reviewForm.invalid">Submit</button>
+</form>

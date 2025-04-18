@@ -8,12 +8,12 @@ import {
 const router = express.Router();
 
 // GET all performance reviews
-router.get("/", getAllReviews);
+router.get("/getReviews", getAllReviews);
 
 // POST create a review
-router.post("/", createReview);
+router.post("/createReview", createReview);
 
 // PUT update a review
-router.put("/:id", updateReview);
+router.put("/updateReview/:id", updateReview);
 
 export default router;
