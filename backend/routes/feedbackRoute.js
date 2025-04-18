@@ -2,7 +2,7 @@ import express from "express";
 import {
   getFeedbackForReview,
   submitFeedback,
-} from "../controllers/feedbackController.js";
+} from "../controllers/feedbackControlls.js";
 
 const router = express.Router();
 

@@ -3,7 +3,7 @@ import {
   getAllReviews,
   createReview,
   updateReview,
-} from "../controllers/performanceReviewController.js";
+} from "../controllers/perfomanceReviewController.js";
 
 const router = express.Router();
 
