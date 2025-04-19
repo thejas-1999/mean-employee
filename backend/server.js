@@ -6,11 +6,13 @@ import mongoose from "mongoose";
 import employeeRoutes from "./routes/employeeRoute.js";
 import reviewRoutes from "./routes/reviewRoute.js";
 import feedbackRoutes from "./routes/feedbackRoute.js";
+import cookieParser from "cookie-parser";
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use(cookieParser());
 const port = process.env.PORT || 5000;
 const mongUri = process.env.MONGO_URI;
 

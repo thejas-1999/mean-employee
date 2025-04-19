@@ -7,11 +7,11 @@ import { AdminReviewComponent } from './admin-review/admin-review.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'employee',
+    redirectTo: 'admin',
     pathMatch: 'full'
   },
   {
-    path: 'employee',
+    path: 'admin',
     component: AdminDashboardComponent
   },
   {

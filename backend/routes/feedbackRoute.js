@@ -7,9 +7,9 @@ import {
 const router = express.Router();
 
 // GET feedback for a specific review
-router.get("/:reviewId", getFeedbackForReview);
+router.get("/:reviewId/feedback", getFeedbackForReview);
 
 // POST submit feedback
-router.post("/", submitFeedback);
+router.post("/add", submitFeedback);
 
 export default router;

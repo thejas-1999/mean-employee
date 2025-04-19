@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AdminService } from '../../admin.service';
 
 @Component({
   selector: 'app-employee-dashboard',
@@ -9,9 +10,18 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class EmployeeDashboardComponent {
 
-  feedbackForm = new FormGroup({
-    revieweeName: new FormControl('', Validators.required),
-    comments: new FormControl('', Validators.required)
-  });
+  employees: any[] = []
+
+  constructor(private adminService: AdminService) {
+    this.getEmployeeDetails()
+  }
+
+  getEmployeeDetails() {
+    this.adminService.fetchEmployees().subscribe((result) => {
+      this.employees = result
+      console.log(this.employees)
+    })
+
+  }
 
 }

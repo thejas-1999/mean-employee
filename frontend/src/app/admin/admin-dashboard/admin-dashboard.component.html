@@ -1,5 +1,5 @@
 <div>
-  <button routerLink="/admin/employee">Employees</button>
+  <button routerLink="/admin/admin">Employees</button>
   <button routerLink="/admin/reviews">Reviews</button>
 </div>
 
@@ -10,13 +10,13 @@
       <tr>
         <th>Name</th>
         <th>Email</th>
-        <th>Role</th>
+
         <th>Actions</th>
       </tr>
       <tr *ngFor="let employee of employees">
         <td>{{ employee.name }}</td>
         <td>{{ employee.email }}</td>
-        <td>{{ employee.role }}</td>
+
         <td>
           <button class="edit-btn" (click)="editEmployee(employee)">
             Edit
@@ -82,21 +82,26 @@
       </span>
     </span>
 
-    <!-- Role -->
-    <label for="role">Choose role:</label><span class="required">*</span>
-    <select id="role" formControlName="role">
-      <option value="">Select role</option>
-      <option value="employee">Employee</option>
-      <option value="admin">Admin</option>
-    </select>
+    <!-- password -->
+    <label for="password">Password</label><span class="required">*</span>
+    <input
+      id="password"
+      type="password"
+      formControlName="password"
+      placeholder="Enter password"
+    />
     <span
       *ngIf="
-        employeeForm.controls.role.invalid && employeeForm.controls.role.touched
+        employeeForm.controls.password.invalid &&
+        employeeForm.controls.password.touched
       "
       class="error-message"
     >
-      <span *ngIf="employeeForm.controls.role.errors?.['required']">
-        Role is required
+      <span *ngIf="employeeForm.controls.password.errors?.['required']">
+        Password is required
+      </span>
+      <span *ngIf="employeeForm.controls.password.errors?.['password']">
+        Enter a valid password
       </span>
     </span>
 

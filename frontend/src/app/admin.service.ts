@@ -5,10 +5,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AdminService {
-  private getEmployeeDetailsApi = 'http://localhost:8000/api/employees/getEmployees'
-  private addEmployeeApi = 'http://localhost:8000/api/employees/addEmployee'
-  private updateEmployeeApi = 'http://localhost:8000/api/employees/updateEmployee'
-  private deleteEmployeeApi = 'http://localhost:8000/api/employees/deleteEmployee'
+  private getEmployeeDetailsApi = 'http://localhost:8000/api/employees/get'
+  private addEmployeeApi = 'http://localhost:8000/api/employees/add'
+  private updateEmployeeApi = 'http://localhost:8000/api/employees/update'
+  private deleteEmployeeApi = 'http://localhost:8000/api/employees/delete'
 
   constructor(private http: HttpClient) {
     this.fetchEmployees

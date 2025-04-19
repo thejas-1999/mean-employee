@@ -7,13 +7,13 @@ import {
 
 const router = express.Router();
 
-// GET all performance reviews
-router.get("/getReviews", getAllReviews);
+// Admin: GET all performance reviews
+router.get("/get", getAllReviews);
 
-// POST create a review
-router.post("/createReview", createReview);
+// Admin: POST create a performance review
+router.post("/add", createReview);
 
-// PUT update a review
-router.put("/updateReview/:id", updateReview);
+// Admin: PUT update a performance review
+router.put("/update/:id", updateReview);
 
 export default router;

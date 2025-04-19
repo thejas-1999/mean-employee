@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ReviewsService {
-  private getAllReviewsApi = 'http://localhost:8000/api/reviews/getReviews'
-  private createReviewApi = 'http://localhost:8000/api/reviews/createReview'
-  private updateReviewApi = 'http://localhost:8000/api/reviews/updateReview'
+  private getAllReviewsApi = 'http://localhost:8000/api/reviews/get'
+  private createReviewApi = 'http://localhost:8000/api/reviews/add'
+  private updateReviewApi = 'http://localhost:8000/api/reviews/update'
 
   constructor(private http: HttpClient) { }
 

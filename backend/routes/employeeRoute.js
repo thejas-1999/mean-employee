@@ -9,15 +9,15 @@ import {
 const router = express.Router();
 
 // GET all employees
-router.get("/getEmployees", getAllEmployees);
+router.get("/get", getAllEmployees);
 
-// POST create new employee
-router.post("/addEmployee", createEmployee);
+// POST create a new employee
+router.post("/add", createEmployee);
 
-// PUT update employee
-router.put("/updateEmployee/:id", updateEmployee);
+// PUT update an employee
+router.put("/update/:id", updateEmployee);
 
-// DELETE employee
-router.delete("/deleteEmployee/:id", deleteEmployee);
+// DELETE an employee
+router.delete("/delete/:id", deleteEmployee);
 
 export default router;
