@@ -5,7 +5,7 @@ dotenv.config();
 import mongoose from "mongoose";
 import employeeRoutes from "./routes/employeeRoute.js";
 import reviewRoutes from "./routes/reviewRoute.js";
-import feedbackRoutes from "./routes/feedbackRoute.js";
+
 import cookieParser from "cookie-parser";
 
 const app = express();
@@ -25,7 +25,6 @@ app.use(express.json());
 // Routes
 app.use("/api/employees", employeeRoutes);
 app.use("/api/reviews", reviewRoutes);
-app.use("/api/feedbacks", feedbackRoutes);
 
 mongoose
   .connect(mongUri)

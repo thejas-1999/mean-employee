@@ -15,6 +15,12 @@ const employeeSchema = new mongoose.Schema(
       enum: ["admin", "employee"],
       default: "employee",
     },
+    assignedReviews: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "PerformanceReview",
+      },
+    ],
   },
   {
     timestamps: true,

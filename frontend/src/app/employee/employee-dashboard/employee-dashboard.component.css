@@ -1,0 +1,152 @@
+/* Main layout styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: "Roboto", "Segoe UI", sans-serif;
+  color: #333;
+}
+
+h2 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  border-bottom: 2px solid #eaeaea;
+  padding-bottom: 0.5rem;
+}
+
+h3 {
+  color: #34495e;
+  font-size: 1.4rem;
+  margin: 1.5rem 0 1rem;
+}
+
+/* Employee selection section */
+.employees {
+  margin-bottom: 2rem;
+}
+
+.employees button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1.25rem;
+  margin-right: 0.75rem;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.employees button:hover {
+  background-color: #2980b9;
+}
+
+/* Reviews list styles */
+.assigned-reviews {
+  margin-bottom: 2rem;
+}
+
+.assigned-reviews button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-left: 4px solid #3498db;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.assigned-reviews button:hover {
+  background-color: #eef5f9;
+  transform: translateX(3px);
+}
+
+.assigned-reviews button:disabled {
+  opacity: 0.6;
+  border-left-color: #95a5a6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Comments section */
+.get-reviews {
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.get-reviews p {
+  background-color: white;
+  border-left: 3px solid #2ecc71;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Feedback submission area */
+textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  resize: vertical;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+button[type="submit"],
+button[click*="submit"] {
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button[type="submit"]:hover,
+button[click*="submit"]:hover {
+  background-color: #27ae60;
+}
+
+/* Message styles */
+.success-message {
+  color: #2ecc71;
+  font-weight: 500;
+  padding: 1rem;
+  background-color: #f0fff4;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .employees button {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+  }
+}

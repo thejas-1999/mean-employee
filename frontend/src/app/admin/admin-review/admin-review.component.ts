@@ -71,6 +71,7 @@ export class AdminReviewComponent {
       } else {
         this.reviewService.addReview(review).subscribe((result) => {
           console.log('Review inserted successfully');
+          console.log(result)
           this.fetchReviews();
           this.reviewForm.reset();
         });

@@ -1,0 +1,308 @@
+/* reviews.component.css */
+
+/* Main Layout */
+:host {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Roboto", Arial, sans-serif;
+  color: #333;
+  background-color: #f9fafc;
+}
+
+/* Navigation Tabs */
+div:first-child {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 15px;
+}
+
+div:first-child button {
+  background-color: transparent;
+  border: none;
+  color: #546e7a;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+div:first-child button:hover,
+div:first-child button.active {
+  color: #1976d2;
+}
+
+div:first-child button::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #1976d2;
+  transition: width 0.3s ease;
+}
+
+div:first-child button:hover::after,
+div:first-child button.active::after {
+  width: 100%;
+}
+
+/* Review Container */
+.review-container {
+  margin-bottom: 40px;
+}
+
+.review-container h1 {
+  color: #2c3e50;
+  font-size: 28px;
+  margin-bottom: 25px;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.review-container h1::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: #3f51b5;
+}
+
+/* Review Cards */
+.review-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-left: 4px solid #3f51b5;
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.review-card h3 {
+  color: #3f51b5;
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.review-card p {
+  margin: 8px 0;
+  color: #455a64;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.review-card p span {
+  color: #455a64;
+  font-weight: 500;
+}
+
+.review-card button {
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.review-card button:hover {
+  background-color: #303f9f;
+}
+
+/* Form Section */
+h2 {
+  color: #2c3e50;
+  font-size: 24px;
+  margin: 30px 0 20px;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: #ff4081;
+}
+
+form {
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 40px;
+}
+
+form label {
+  display: block;
+  color: #455a64;
+  font-weight: 500;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+form select,
+form input[type="date"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 15px;
+  color: #37474f;
+  margin-bottom: 20px;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+form select:focus,
+form input[type="date"]:focus {
+  outline: none;
+  border-color: #3f51b5;
+  box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.15);
+}
+
+form select option {
+  padding: 10px;
+}
+
+/* Checkbox section */
+div:has(input[type="checkbox"]) {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+  accent-color: #3f51b5;
+}
+
+div:has(input[type="checkbox"]) label {
+  margin-bottom: 0;
+  display: inline;
+}
+
+/* Submit Button */
+form button[type="submit"] {
+  background-color: #ff4081;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
+}
+
+form button[type="submit"]:hover:not([disabled]) {
+  background-color: #e91e63;
+  transform: translateY(-2px);
+}
+
+form button[type="submit"]:active:not([disabled]) {
+  transform: translateY(0);
+}
+
+form button[type="submit"][disabled] {
+  background-color: #bdbdbd;
+  cursor: not-allowed;
+}
+
+/* Status Indicators */
+p:has(+ p:contains("Status")) {
+  position: relative;
+}
+
+p:contains("Status: pending")::after {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #ff9800;
+  border-radius: 50%;
+  margin-left: 8px;
+  position: relative;
+  top: -1px;
+}
+
+p:contains("Status: completed")::after {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #4caf50;
+  border-radius: 50%;
+  margin-left: 8px;
+  position: relative;
+  top: -1px;
+}
+
+/* Due Date Styling */
+p:contains("Due Date") {
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .review-card {
+    padding: 20px;
+  }
+
+  form {
+    padding: 20px;
+  }
+
+  h1,
+  h2 {
+    font-size: 22px;
+  }
+
+  .review-card h3 {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 992px) {
+  /* Create a two-column layout for larger screens */
+  .layout-container {
+    display: flex;
+    gap: 30px;
+  }
+
+  .review-container {
+    flex: 1;
+  }
+
+  .form-container {
+    flex: 1;
+  }
+}

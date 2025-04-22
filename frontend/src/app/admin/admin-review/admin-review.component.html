@@ -1,25 +1,3 @@
-<div>
-  <button routerLink="/admin/admin">Employees</button>
-  <button routerLink="/admin/reviews">Reviews</button>
-</div>
-
-<div class="review-container">
-  <h1>Reviews</h1>
-  <div class="review-card" *ngFor="let review of reviews">
-    <h3>Review Details</h3>
-    <p>Reviewee: {{ review.reviewee.name }}</p>
-    <p>
-      Assigned Reviewers:
-      <span *ngFor="let reviewer of review.assignedReviewers; let last = last">
-        {{ reviewer.name }}<span *ngIf="!last">, </span>
-      </span>
-    </p>
-    <p>Status: {{ review.status }}</p>
-    <p>Due Date: {{ review.dueDate | date }}</p>
-    <button (click)="editReview(review)">Edit</button>
-  </div>
-</div>
-
 <h2>{{ editMode ? "Edit Review" : "Add New Review" }}</h2>
 
 <form [formGroup]="reviewForm" (ngSubmit)="formSubmit()">
@@ -62,3 +40,25 @@
 
   <button type="submit" [disabled]="reviewForm.invalid">Submit</button>
 </form>
+
+<div>
+  <button routerLink="/admin/admin">Employees</button>
+  <button routerLink="/admin/reviews">Reviews</button>
+</div>
+
+<div class="review-container">
+  <h1>Reviews</h1>
+  <div class="review-card" *ngFor="let review of reviews">
+    <h3>Review Details</h3>
+    <p>Reviewee: {{ review?.reviewee?.name }}</p>
+    <p>
+      Assigned Reviewers:
+      <span *ngFor="let reviewer of review.assignedReviewers; let last = last">
+        {{ reviewer.name }}<span *ngIf="!last">, </span>
+      </span>
+    </p>
+    <p>Status: {{ review.status }}</p>
+    <p>Due Date: {{ review.dueDate | date }}</p>
+    <button (click)="editReview(review)">Edit</button>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 import Employee from "../models/employeeModel.js";
+import PerformanceReview from "../models/perfomanceReview.js";
 
 //get all employees
 const getAllEmployees = async (req, res) => {
@@ -31,12 +32,21 @@ const updateEmployee = async (req, res) => {
   }
 };
 
-const deleteEmployee = async () => {
+const deleteEmployee = async (req, res) => {
   try {
-    const employee = await Employee.findByIdAndDelete(req.params.id);
-    res.json(`Employee id Deleted`);
-  } catch (error) {
-    res.status(500).json({ err: err.message });
+    const employeeId = req.params.id;
+
+    // Delete reviews where employee is reviewer or reviewee
+    await PerformanceReview.deleteMany({
+      $or: [{ reviewer: employeeId }, { reviewee: employeeId }],
+    });
+
+    // Delete the employee
+    await Employee.findByIdAndDelete(employeeId);
+
+    res.json({ message: "Employee and related reviews deleted" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 };
 

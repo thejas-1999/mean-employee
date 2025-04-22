@@ -82,29 +82,6 @@
       </span>
     </span>
 
-    <!-- password -->
-    <label for="password">Password</label><span class="required">*</span>
-    <input
-      id="password"
-      type="password"
-      formControlName="password"
-      placeholder="Enter password"
-    />
-    <span
-      *ngIf="
-        employeeForm.controls.password.invalid &&
-        employeeForm.controls.password.touched
-      "
-      class="error-message"
-    >
-      <span *ngIf="employeeForm.controls.password.errors?.['required']">
-        Password is required
-      </span>
-      <span *ngIf="employeeForm.controls.password.errors?.['password']">
-        Enter a valid password
-      </span>
-    </span>
-
     <!-- Submit Button -->
     <button type="submit" [disabled]="employeeForm.invalid">
       <span *ngIf="!editMode">Add Employee</span>

@@ -1,6 +1,60 @@
-<div class="main">
-  <h1>All the Assigned Reviews</h1>
-  <button *ngFor="let employee of employees">
+<!-- Show Employees -->
+<div class="employees" *ngIf="!selectedReview && reviews.length === 0">
+  <h2>Select an Employee</h2>
+  <button *ngFor="let employee of employees" (click)="selectEmployee(employee)">
     {{ employee.name }}
   </button>
+</div>
+
+<!-- Show Reviews -->
+<div class="assigned-reviews" *ngIf="reviews.length > 0 && !selectedReview">
+  <h2>Assigned Reviews</h2>
+  <ng-container *ngIf="reviews.length > 0; else noReviews">
+    <button
+      *ngFor="let review of reviews"
+      [disabled]="!review?.reviewee?.name"
+      (click)="selectedReview = review"
+    >
+      <ng-container *ngIf="review?.reviewee?.name; else noReviewee">
+        Add a Review about {{ review.reviewee.name }}
+      </ng-container>
+      <ng-template #noReviewee>
+        <span>Reviewee not assigned</span>
+      </ng-template>
+    </button>
+  </ng-container>
+
+  <ng-template #noReviews>
+    <p>No assigned reviews</p>
+  </ng-template>
+</div>
+
+<!-- Show Comments -->
+<div class="get-reviews" *ngIf="selectedReview">
+  <h2>Comments</h2>
+  <p *ngFor="let fb of selectedReview?.feedback">
+    {{ fb.comments || "No comments available" }}
+  </p>
+</div>
+
+<!-- Feedback Submission -->
+<div *ngIf="selectedReview">
+  <h3>Feedback</h3>
+
+  <div *ngIf="!isFeedbackSubmitted(selectedReview._id)">
+    <textarea
+      id="comments"
+      rows="5"
+      cols="40"
+      placeholder="Enter your comments..."
+      [(ngModel)]="feedback.comments"
+      name="comments"
+    ></textarea>
+
+    <button (click)="submitFeedback()">Submit</button>
+  </div>
+
+  <div *ngIf="isFeedbackSubmitted(selectedReview._id)">
+    <p>Feedback has already been submitted for this review.</p>
+  </div>
 </div>
